@@ -6,11 +6,9 @@ export const categories: Category[] = [
     name: 'الكتابة والمحتوى',
     icon: '✍️',
     subcategories: [
-      { id: 'blog', name: 'مقالات المدونة', count: 50 },
-      { id: 'social', name: 'محتوى سوشيال ميديا', count: 50 },
-      { id: 'marketing', name: 'التسويق والإعلانات', count: 50 },
-      { id: 'creative', name: 'الكتابة الإبداعية', count: 50 },
-      { id: 'business', name: 'الكتابة التجارية', count: 50 },
+      { id: 'blog', name: 'مقالات المدونة', count: 5 },
+      { id: 'social', name: 'محتوى سوشيال ميديا', count: 4 },
+      { id: 'marketing', name: 'التسويق والإعلانات', count: 2 },
     ],
   },
   {
@@ -18,11 +16,8 @@ export const categories: Category[] = [
     name: 'البرمجة والتطوير',
     icon: '💻',
     subcategories: [
-      { id: 'web', name: 'تطوير الويب', count: 50 },
-      { id: 'mobile', name: 'تطوير التطبيقات', count: 25 },
-      { id: 'debugging', name: 'إصلاح الأخطاء', count: 25 },
-      { id: 'optimization', name: 'تحسين الكود', count: 25 },
-      { id: 'documentation', name: 'التوثيق', count: 25 },
+      { id: 'web', name: 'تطوير الويب', count: 3 },
+      { id: 'debugging', name: 'إصلاح الأخطاء', count: 1 },
     ],
   },
   {
@@ -30,72 +25,7 @@ export const categories: Category[] = [
     name: 'التصميم والفن',
     icon: '🎨',
     subcategories: [
-      { id: 'ui-ux', name: 'UI/UX', count: 25 },
-      { id: 'logo', name: 'تصميم الشعارات', count: 25 },
-      { id: 'illustration', name: 'الرسوم التوضيحية', count: 25 },
-      { id: 'photo', name: 'التصوير الفوتوغرافي', count: 25 },
-    ],
-  },
-  {
-    id: 'education',
-    name: 'التعليم والتدريس',
-    icon: '📚',
-    subcategories: [
-      { id: 'lesson', name: 'خطط الدروس', count: 20 },
-      { id: 'quiz', name: 'الاختبارات والأسئلة', count: 20 },
-      { id: 'explanation', name: 'الشروحات', count: 20 },
-      { id: 'curriculum', name: 'المناهج', count: 10 },
-    ],
-  },
-  {
-    id: 'business',
-    name: 'الأعمال والإدارة',
-    icon: '💼',
-    subcategories: [
-      { id: 'strategy', name: 'الاستراتيجية', count: 15 },
-      { id: 'analysis', name: 'التحليل', count: 15 },
-      { id: 'planning', name: 'التخطيط', count: 15 },
-      { id: 'reports', name: 'التقارير', count: 15 },
-    ],
-  },
-  {
-    id: 'research',
-    name: 'البحث والتحليل',
-    icon: '🔍',
-    subcategories: [
-      { id: 'academic', name: 'البحث الأكاديمي', count: 15 },
-      { id: 'market', name: 'أبحاث السوق', count: 15 },
-      { id: 'data', name: 'تحليل البيانات', count: 10 },
-    ],
-  },
-  {
-    id: 'personal',
-    name: 'التطوير الشخصي',
-    icon: '🌟',
-    subcategories: [
-      { id: 'productivity', name: 'الإنتاجية', count: 15 },
-      { id: 'career', name: 'التطوير المهني', count: 10 },
-      { id: 'wellness', name: 'الصحة والعافية', count: 10 },
-    ],
-  },
-  {
-    id: 'email',
-    name: 'البريد الإلكتروني',
-    icon: '📧',
-    subcategories: [
-      { id: 'professional', name: 'رسمي', count: 15 },
-      { id: 'sales', name: 'المبيعات', count: 10 },
-      { id: 'support', name: 'الدعم الفني', count: 10 },
-    ],
-  },
-  {
-    id: 'seo',
-    name: 'SEO والتحسين',
-    icon: '📈',
-    subcategories: [
-      { id: 'keywords', name: 'الكلمات المفتاحية', count: 10 },
-      { id: 'meta', name: 'Meta Descriptions', count: 10 },
-      { id: 'content-seo', name: 'تحسين المحتوى', count: 10 },
+      { id: 'ui-ux', name: 'UI/UX', count: 1 },
     ],
   },
   {
@@ -103,16 +33,14 @@ export const categories: Category[] = [
     name: 'توليد الصور بالـAI',
     icon: '🖼️',
     subcategories: [
-      { id: 'realistic', name: 'واقعي', count: 15 },
-      { id: 'artistic', name: 'فني', count: 15 },
-      { id: 'product', name: 'منتجات', count: 10 },
+      { id: 'realistic', name: 'واقعي', count: 1 },
+      { id: 'product', name: 'منتجات', count: 1 },
     ],
   },
 ];
 
 export const prompts: Prompt[] = [
-  // Writing & Content (250 prompts)
-  // Blog Posts (50)
+  // Eighteen authored prompts. No generated filler or synthetic popularity data.
   {
     id: '1',
     title: 'كتابة مقال مدونة شامل',
@@ -124,8 +52,6 @@ export const prompts: Prompt[] = [
     aiTool: 'ChatGPT',
     example: 'topic: "الذكاء الاصطناعي في التعليم"',
     expectedOutput: 'مقال متكامل يشرح تطبيقات AI في التعليم مع أمثلة وإحصائيات',
-    rating: 4.8,
-    usageCount: 1250,
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -140,8 +66,6 @@ export const prompts: Prompt[] = [
     aiTool: 'ChatGPT',
     example: 'topic: "التسويق الرقمي للمبتدئين"',
     expectedOutput: 'قائمة بـ10 عناوين مبتكرة وجذابة',
-    rating: 4.9,
-    usageCount: 2100,
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -154,8 +78,7 @@ export const prompts: Prompt[] = [
     subcategory: 'blog',
     tags: ['introduction', 'hook', 'engagement'],
     aiTool: 'ChatGPT',
-    rating: 4.7,
-    usageCount: 980,
+    example: 'topic: "كيف أبدأ العمل الحر؟"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -168,8 +91,7 @@ export const prompts: Prompt[] = [
     subcategory: 'blog',
     tags: ['conclusion', 'CTA', 'engagement'],
     aiTool: 'ChatGPT',
-    rating: 4.6,
-    usageCount: 875,
+    example: 'topic: "التعلم المستمر"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -182,8 +104,7 @@ export const prompts: Prompt[] = [
     subcategory: 'blog',
     tags: ['how-to', 'tutorial', 'guide'],
     aiTool: 'ChatGPT',
-    rating: 4.8,
-    usageCount: 1456,
+    example: 'task: "إنشاء متجر إلكتروني بسيط"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -198,8 +119,7 @@ export const prompts: Prompt[] = [
     subcategory: 'social',
     tags: ['LinkedIn', 'professional', 'B2B'],
     aiTool: 'ChatGPT',
-    rating: 4.9,
-    usageCount: 1789,
+    example: 'topic: "إدارة الوقت للفرق الصغيرة"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -212,8 +132,7 @@ export const prompts: Prompt[] = [
     subcategory: 'social',
     tags: ['Twitter', 'thread', 'viral'],
     aiTool: 'ChatGPT',
-    rating: 4.8,
-    usageCount: 2345,
+    example: 'topic: "أخطاء إطلاق المنتجات الرقمية"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -226,8 +145,7 @@ export const prompts: Prompt[] = [
     subcategory: 'social',
     tags: ['Instagram', 'caption', 'engagement'],
     aiTool: 'ChatGPT',
-    rating: 4.7,
-    usageCount: 1654,
+    example: 'topic: "روتين صباحي واقعي"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -240,8 +158,7 @@ export const prompts: Prompt[] = [
     subcategory: 'social',
     tags: ['TikTok', 'script', 'video'],
     aiTool: 'ChatGPT',
-    rating: 4.6,
-    usageCount: 1234,
+    example: 'topic: "ميزة جديدة في تطبيق إنتاجية"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -256,8 +173,7 @@ export const prompts: Prompt[] = [
     subcategory: 'marketing',
     tags: ['Facebook Ads', 'PPC', 'conversion'],
     aiTool: 'ChatGPT',
-    rating: 4.9,
-    usageCount: 2567,
+    example: 'product: "تطبيق لتتبع المصروفات"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -270,8 +186,7 @@ export const prompts: Prompt[] = [
     subcategory: 'marketing',
     tags: ['landing page', 'conversion', 'copywriting'],
     aiTool: 'ChatGPT',
-    rating: 4.9,
-    usageCount: 1897,
+    example: 'product: "منصة دورات عربية"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -287,8 +202,7 @@ export const prompts: Prompt[] = [
     subcategory: 'web',
     tags: ['React', 'TypeScript', 'component'],
     aiTool: 'Claude',
-    rating: 4.9,
-    usageCount: 3456,
+    example: 'component_name: "AccessiblePricingTable"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -301,8 +215,7 @@ export const prompts: Prompt[] = [
     subcategory: 'web',
     tags: ['Node.js', 'Express', 'API'],
     aiTool: 'Claude',
-    rating: 4.8,
-    usageCount: 2789,
+    example: 'functionality: "create a support ticket"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -315,8 +228,7 @@ export const prompts: Prompt[] = [
     subcategory: 'web',
     tags: ['CSS', 'animation', 'performance'],
     aiTool: 'Claude',
-    rating: 4.7,
-    usageCount: 1654,
+    example: 'element: "navigation drawer"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -331,8 +243,7 @@ export const prompts: Prompt[] = [
     subcategory: 'debugging',
     tags: ['debugging', 'error-fixing', 'code-review'],
     aiTool: 'Claude',
-    rating: 4.9,
-    usageCount: 4567,
+    example: 'code: "const total = items.reduce(...)"; error_message: "items is undefined"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -348,8 +259,7 @@ export const prompts: Prompt[] = [
     subcategory: 'ui-ux',
     tags: ['UI', 'dashboard', 'web-design'],
     aiTool: 'ChatGPT',
-    rating: 4.7,
-    usageCount: 1234,
+    example: 'application_type: "inventory manager"; style: "minimal"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -364,8 +274,7 @@ export const prompts: Prompt[] = [
     subcategory: 'product',
     tags: ['product', 'photography', 'commercial'],
     aiTool: 'Midjourney',
-    rating: 4.9,
-    usageCount: 3456,
+    example: 'product_description: "matte black reusable water bottle"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
@@ -378,44 +287,10 @@ export const prompts: Prompt[] = [
     subcategory: 'realistic',
     tags: ['portrait', 'realistic', 'photography'],
     aiTool: 'Stable Diffusion',
-    rating: 4.8,
-    usageCount: 2345,
+    example: 'person_description: "middle-aged Egyptian architect in a linen jacket"',
     createdAt: '2024-01-01',
     updatedAt: '2024-01-01',
   },
 ];
 
-// Generate more prompts programmatically to reach 500
-const generateMorePrompts = (): Prompt[] => {
-  const additionalPrompts: Prompt[] = [];
-  const baseTopics = [
-    'email marketing', 'SEO optimization', 'data analysis', 'UI design',
-    'backend development', 'mobile app', 'testing', 'documentation',
-    'project management', 'customer service', 'sales pitch', 'presentation'
-  ];
-
-  for (let i = 0; i < 398; i++) {
-    const topic = baseTopics[i % baseTopics.length];
-    const categories_list = ['writing', 'coding', 'design', 'education', 'business'];
-    const cat = categories_list[i % categories_list.length];
-
-    additionalPrompts.push({
-      id: (603 + i).toString(),
-      title: `${topic} - Prompt ${i + 1}`,
-      description: `Helpful prompt for ${topic}`,
-      content: `Create professional content for {{${topic.replace(' ', '_')}}}. Ensure high quality, detailed output.`,
-      category: cat,
-      subcategory: cat === 'writing' ? 'blog' : cat === 'coding' ? 'web' : 'ui-ux',
-      tags: [topic, cat, 'professional'],
-      aiTool: 'ChatGPT',
-      rating: 4.5 + Math.random() * 0.5,
-      usageCount: Math.floor(Math.random() * 1000),
-      createdAt: '2024-01-01',
-      updatedAt: '2024-01-01',
-    });
-  }
-
-  return additionalPrompts;
-};
-
-export const allPrompts = [...prompts, ...generateMorePrompts()];
+export const allPrompts = prompts;

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, useEffect } from 'react';
+import { useMemo, useSyncExternalStore } from 'react';
 import { useStore } from '@/store/useStore';
 import { Sidebar } from '@/components/Sidebar';
 import { PromptCard } from '@/components/PromptCard';
@@ -25,11 +25,11 @@ export default function Home() {
     importData,
   } = useStore();
 
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false,
+  );
 
   // Configure Fuse.js for advanced search
   const fuse = useMemo(

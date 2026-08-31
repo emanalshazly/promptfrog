@@ -25,7 +25,6 @@ interface PromptStore {
   removePromptFromFolder: (folderId: string, promptId: string) => void;
 
   addToHistory: (promptId: string) => void;
-  incrementUsage: (promptId: string) => void;
 
   setSelectedPrompt: (prompt: Prompt | null) => void;
   setSearchQuery: (query: string) => void;
@@ -96,13 +95,6 @@ export const useStore = create<PromptStore>()(
             { promptId, timestamp: new Date().toISOString() },
             ...state.usageHistory,
           ].slice(0, 100), // Keep last 100
-        })),
-
-      incrementUsage: (promptId) =>
-        set((state) => ({
-          prompts: state.prompts.map((p) =>
-            p.id === promptId ? { ...p, usageCount: p.usageCount + 1 } : p
-          ),
         })),
 
       setSelectedPrompt: (prompt) => set({ selectedPrompt: prompt }),

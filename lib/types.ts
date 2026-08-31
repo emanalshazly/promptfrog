@@ -9,8 +9,6 @@ export interface Prompt {
   aiTool: 'ChatGPT' | 'Claude' | 'Midjourney' | 'Stable Diffusion' | 'Universal';
   example?: string;
   expectedOutput?: string;
-  rating: number;
-  usageCount: number;
   createdAt: string;
   updatedAt: string;
 }

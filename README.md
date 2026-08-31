@@ -1,178 +1,72 @@
-# 🐸 Promptfrog - مكتبة Prompts احترافية
+# Promptfrog
 
-مكتبة شاملة تحتوي على **500+ prompt احترافي** لـChatGPT وClaude وMidjourney وStable Diffusion.
+An Arabic-first prompt library containing **18 authored prompts** for ChatGPT, Claude, Midjourney, and Stable Diffusion. The first release prioritizes a small, inspectable catalog over generated filler or synthetic popularity signals.
 
-![Promptfrog](https://img.shields.io/badge/Prompts-500%2B-blue)
-![Next.js](https://img.shields.io/badge/Next.js-14-black)
-![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
+![Catalog](https://img.shields.io/badge/authored_prompts-18-2563eb)
+![CI](https://github.com/emanalshazly/promptfrog/actions/workflows/ci.yml/badge.svg)
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
 
-## ✨ الميزات
+## What is implemented
 
-### 🎯 مكتبة ضخمة
-- **500+ prompt** حقيقي ومفيد
-- **10 فئات رئيسية**
-- **50+ تصنيف فرعي**
-- تغطية شاملة لـ: ChatGPT, Claude, Midjourney, Stable Diffusion
+- Search across titles, descriptions, content, and tags.
+- Category and subcategory filters.
+- Prompt preview with `{{variable}}` substitution.
+- Favorites and folders stored in the browser.
+- JSON import/export for local collections.
+- Light and dark themes.
 
-### 🛠️ محرر Prompts متقدم
-- إضافة متغيرات `{{variable}}`
-- معاينة فورية
-- نسخ بنقرة واحدة
-- تقييم ونجوم لكل prompt
-- أمثلة حقيقية ونتائج متوقعة
+Promptfrog does not collect real usage analytics, publish ratings, or claim that the prompts have been benchmarked across models. Favorites and folders are local UI state, not adoption evidence.
 
-### 📁 إدارة متقدمة
-- مجلدات مخصصة لتنظيم الـprompts
-- نظام tags وملصقات
-- سجل استخدام كامل
-- prompts مفضلة
-- البحث المتقدم مع Fuse.js
+## Catalog
 
-### 🔄 مشاركة وتعاون
-- تصدير collection كـ JSON
-- استيراد من ملفات
-- مشاركة روابط
+The catalog currently contains 18 prompts:
 
-### 🎨 تصميم احترافي
-- تصميم مستوحى من Notion
-- Sidebar تفاعلي
-- بطاقات prompts جذابة
-- Dark mode كامل
-- Responsive على جميع الشاشات
+| Area | Count |
+|---|---:|
+| Writing and content | 11 |
+| Coding and debugging | 4 |
+| UI/UX design | 1 |
+| AI image generation | 2 |
 
-## 🚀 التقنيات المستخدمة
+`npm run validate:data` checks the catalog count, identifiers, categories, declared subcategory counts, and prompt variables.
 
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **UI Components**: Shadcn/ui
-- **State Management**: Zustand
-- **Search**: Fuse.js
-- **Forms**: React Hook Form
-- **Icons**: Lucide React
-- **Theme**: next-themes
+## Run locally
 
-## 📦 التثبيت والتشغيل
+Requirements: Node.js 20 and npm.
 
-### المتطلبات
-- Node.js 18+
-- npm أو yarn
-
-### الخطوات
-
-1. **Clone المشروع**
 ```bash
-git clone https://github.com/yourusername/promptfrog.git
+git clone https://github.com/emanalshazly/promptfrog.git
 cd promptfrog
-```
-
-2. **تثبيت المكتبات**
-```bash
-npm install
-```
-
-3. **تشغيل المشروع**
-```bash
+npm ci
+npm test
+npm run build
 npm run dev
 ```
 
-4. **افتح المتصفح**
-```
-http://localhost:3000
-```
+Open `http://localhost:3000`.
 
-## 🌐 النشر على Vercel
+## Validation boundary
 
-### نشر سريع
+- `npm test` is deterministic catalog validation.
+- `npm run lint` checks source lint rules.
+- `npm run build` proves that this revision compiles as a Next.js application.
+- These checks do not establish prompt output quality, cultural quality, model compatibility, deployment status, adoption, or market demand.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new)
+## Project structure
 
-### خطوات يدوية
-
-1. قم بإنشاء حساب على [Vercel](https://vercel.com)
-2. ربط المشروع بـGitHub
-3. اختر المشروع
-4. اضغط Deploy
-
-سيتم النشر تلقائياً في أقل من دقيقة!
-
-## 📖 كيفية الاستخدام
-
-### البحث عن Prompts
-1. استخدم شريط البحث في الأعلى
-2. أو اختر تصنيف من الـSidebar
-3. اضغط على أي prompt لفتح المحرر
-
-### استخدام المحرر
-1. املأ المتغيرات المطلوبة (مثل `{{topic}}`)
-2. شاهد المعاينة الفورية
-3. اضغط "نسخ" لنسخ الـprompt كاملاً
-
-### إضافة للمفضلة
-- اضغط على النجمة ⭐ في أي prompt
-- الوصول لجميع المفضلة من الـSidebar
-
-### التصدير والاستيراد
-- **تصدير**: احفظ المفضلة والمجلدات كـJSON
-- **استيراد**: استورد ملفات JSON من مصادر أخرى
-
-## 🗂️ هيكل المشروع
-
-```
-promptfrog/
-├── app/                    # Next.js App Router
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx           # الصفحة الرئيسية
-│   └── globals.css        # الأنماط العامة
-├── components/            # مكونات React
-│   ├── ui/               # مكونات Shadcn/ui
-│   ├── Sidebar.tsx       # القائمة الجانبية
-│   ├── PromptCard.tsx    # بطاقة Prompt
-│   ├── PromptEditor.tsx  # محرر Prompt
-│   └── SearchBar.tsx     # شريط البحث
-├── data/                  # قاعدة البيانات
-│   └── prompts.ts        # 500+ prompt
-├── lib/                   # مكتبات مساعدة
-│   ├── types.ts          # TypeScript types
-│   └── utils.ts          # دوال مساعدة
-├── store/                 # إدارة الحالة
-│   └── useStore.ts       # Zustand store
-└── public/               # ملفات ثابتة
+```text
+app/                 Next.js App Router
+components/          UI and prompt editor
+data/prompts.ts      Canonical 18-prompt catalog
+lib/types.ts         Data contracts
+scripts/             Deterministic catalog validation
+store/               Local Zustand state
 ```
 
-## 🎯 الفئات المتاحة
+## Contributing
 
-1. **✍️ الكتابة والمحتوى** - مقالات، سوشيال ميديا، تسويق
-2. **💻 البرمجة والتطوير** - web, mobile, debugging
-3. **🎨 التصميم والفن** - UI/UX, شعارات, رسوم
-4. **📚 التعليم والتدريس** - دروس, اختبارات, شروحات
-5. **💼 الأعمال والإدارة** - استراتيجية, تحليل, تقارير
-6. **🔍 البحث والتحليل** - أكاديمي, سوق, بيانات
-7. **🌟 التطوير الشخصي** - إنتاجية, مهني, صحة
-8. **📧 البريد الإلكتروني** - رسمي, مبيعات, دعم
-9. **📈 SEO والتحسين** - كلمات مفتاحية, meta, محتوى
-10. **🖼️ توليد الصور بالـAI** - واقعي, فني, منتجات
+Add authored prompts to `data/prompts.ts` and update the relevant subcategory count. A contribution must pass `npm test`, lint, and build.
 
-## 🤝 المساهمة
+## License
 
-نرحب بجميع المساهمات! إذا كان لديك prompt مفيد:
-
-1. Fork المشروع
-2. أضف الـprompt في `data/prompts.ts`
-3. اعمل Pull Request
-
-## 📄 الترخيص
-
-MIT License - يمكنك استخدام المشروع بحرية!
-
-## 🌟 دعم المشروع
-
-إذا أعجبك المشروع:
-- ⭐ Star على GitHub
-- 🐦 شارك على Twitter
-- 📝 اكتب مراجعة
-
----
-
-صُنع بـ ❤️ من أجل مجتمع AI العربي
+MIT
