@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Prompt, PromptVariable } from '@/lib/types';
 import { useStore } from '@/store/useStore';
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/components/ui/card';
@@ -10,7 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
-  Copy, Star, X, Sparkles, TrendingUp, Clock,
+  Copy, Star, X, Sparkles, Clock,
   Check
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -20,52 +20,45 @@ interface PromptEditorProps {
   onClose: () => void;
 }
 
+function extractVariables(content: string): PromptVariable[] {
+  const matches = Array.from(content.matchAll(/\{\{([^}]+)\}\}/g));
+  return Array.from(new Set(matches.map((match) => match[1]))).map((name) => ({
+    name,
+    value: '',
+    description: `أدخل قيمة ${name}`,
+  }));
+}
+
+function applyVariables(content: string, variables: PromptVariable[]): string {
+  let processed = content;
+  for (const variable of variables) {
+    if (variable.value) {
+      processed = processed.replace(new RegExp(`\\{\\{${variable.name}\\}\\}`, 'g'), variable.value);
+    }
+  }
+  return processed;
+}
+
 export function PromptEditor({ prompt, onClose }: PromptEditorProps) {
-  const { addFavorite, removeFavorite, isFavorite, addToHistory, incrementUsage } = useStore();
-  const [variables, setVariables] = useState<PromptVariable[]>([]);
-  const [processedContent, setProcessedContent] = useState('');
+  const { addFavorite, removeFavorite, isFavorite, addToHistory } = useStore();
+  const [variables, setVariables] = useState<PromptVariable[]>(() => extractVariables(prompt.content));
+  const [processedContent, setProcessedContent] = useState(prompt.content);
   const [copied, setCopied] = useState(false);
 
   const isLiked = isFavorite(prompt.id);
 
-  useEffect(() => {
-    // Extract variables from prompt content
-    const regex = /\{\{([^}]+)\}\}/g;
-    const matches = Array.from(prompt.content.matchAll(regex));
-    const uniqueVars = Array.from(new Set(matches.map((m) => m[1])));
-
-    const vars: PromptVariable[] = uniqueVars.map((name) => ({
-      name,
-      value: '',
-      description: `أدخل قيمة ${name}`,
-    }));
-
-    setVariables(vars);
-    setProcessedContent(prompt.content);
-  }, [prompt]);
-
-  useEffect(() => {
-    // Update processed content when variables change
-    let content = prompt.content;
-    variables.forEach((v) => {
-      if (v.value) {
-        content = content.replace(new RegExp(`\\{\\{${v.name}\\}\\}`, 'g'), v.value);
-      }
-    });
-    setProcessedContent(content);
-  }, [variables, prompt]);
-
   const handleVariableChange = (name: string, value: string) => {
-    setVariables((prev) =>
-      prev.map((v) => (v.name === name ? { ...v, value } : v))
+    const nextVariables = variables.map((variable) =>
+      variable.name === name ? { ...variable, value } : variable,
     );
+    setVariables(nextVariables);
+    setProcessedContent(applyVariables(prompt.content, nextVariables));
   };
 
   const handleCopy = () => {
     navigator.clipboard.writeText(processedContent);
     setCopied(true);
     addToHistory(prompt.id);
-    incrementUsage(prompt.id);
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -117,14 +110,6 @@ export function PromptEditor({ prompt, onClose }: PromptEditorProps) {
           </div>
 
           <div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
-            <div className="flex items-center gap-1">
-              <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-              <span>{prompt.rating.toFixed(1)}</span>
-            </div>
-            <div className="flex items-center gap-1">
-              <TrendingUp className="w-4 h-4" />
-              <span>{prompt.usageCount} استخدام</span>
-            </div>
             <div className="flex items-center gap-1">
               <Clock className="w-4 h-4" />
               <span>{new Date(prompt.createdAt).toLocaleDateString('ar')}</span>

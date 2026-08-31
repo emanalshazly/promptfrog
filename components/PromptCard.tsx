@@ -5,7 +5,7 @@ import { useStore } from '@/store/useStore';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Star, Copy, Eye, TrendingUp } from 'lucide-react';
+import { Star, Copy, Eye } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface PromptCardProps {
@@ -76,18 +76,7 @@ export function PromptCard({ prompt, onClick }: PromptCardProps) {
         </p>
       </CardContent>
 
-      <CardFooter className="flex items-center justify-between">
-        <div className="flex items-center gap-4 text-xs text-muted-foreground">
-          <div className="flex items-center gap-1">
-            <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-            <span>{prompt.rating.toFixed(1)}</span>
-          </div>
-          <div className="flex items-center gap-1">
-            <TrendingUp className="w-3 h-3" />
-            <span>{prompt.usageCount}</span>
-          </div>
-        </div>
-
+      <CardFooter className="flex items-center justify-end">
         <div className="flex gap-2">
           <Button
             variant="ghost"

@@ -16,7 +16,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Promptfrog - مكتبة Prompts احترافية",
-  description: "مكتبة شاملة تحتوي على 500+ prompt احترافي لـChatGPT وClaude وMidjourney وStable Diffusion",
+  description: "مكتبة عربية تضم 18 prompt مؤلفاً لـChatGPT وClaude وMidjourney وStable Diffusion",
   keywords: ["prompts", "AI", "ChatGPT", "Claude", "Midjourney", "Stable Diffusion"],
 };
 
